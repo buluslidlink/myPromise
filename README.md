@@ -1,36 +1,22 @@
-# jQuery
+# myPromise
 
-> jQuery is a fast, small, and feature-rich JavaScript library.
+> myPromise is a fast, small, and feature-rich JavaScript library.
 
-For information on how to get started and how to use jQuery, please see [jQuery's documentation](http://api.jquery.com/).
-For source files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
+For information on how to get started and how to use myPromise, please see [myPromise's test file](https://github.com/buluslidlink/myPromise/blob/master/test/test.js).
+For source files and issues, please visit the [myPromise repo](https://github.com/buluslidlink/myPromise.git).
 
-## Including jQuery
+## Including myPromise
 
-Below are some of the most common ways to include jQuery.
+Below are some of the most common ways to include myPromise.
 
 ### Browser
 
 #### Script tag
 
+Download source codes and refer the src or dist js file.
+
 ```html
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-```
-
-#### Babel
-
-[Babel](http://babeljs.io/) is a next generation JavaScript compiler. One of the features is the ability to use ES6/ES2015 modules now, even though browsers do not yet support this feature natively.
-
-```js
-import $ from "jquery";
-```
-
-#### Browserify/Webpack
-
-There are several ways to use [Browserify](http://browserify.org/) and [Webpack](https://webpack.github.io/). For more information on using these tools, please refer to the corresponding project's documention. In the script, including jQuery will usually look like this...
-
-```js
-var $ = require("jquery");
+<script src="src/myPromise.js or (dist/myPromise.min.js)"></script>
 ```
 
 #### AMD (Asynchronous Module Definition)
@@ -38,28 +24,23 @@ var $ = require("jquery");
 AMD is a module format built for the browser. For more information, we recommend [require.js' documentation](http://requirejs.org/docs/whyamd.html).
 
 ```js
-define(["jquery"], function($) {
+define(["myPromise"], function(myPromise) {
 
 });
 ```
 
 ### Node
 
-To include jQuery in [Node](nodejs.org), first install with npm.
+To include myPromise in [Node](nodejs.org), first install with npm.
 
 ```sh
-npm install jquery
+npm install myPromise
 ```
 
-For jQuery to work in Node, a window with a document is required. Since no such window exists natively in Node, one can be mocked by tools such as [jsdom](https://github.com/tmpvar/jsdom). This can be useful for testing purposes.
+For myPromise to work in Node, an environment supported ECMAScript6 is required.
 
 ```js
-require("jsdom").env("", function(err, window) {
-	if (err) {
-		console.error(err);
-		return;
-	}
-
-	var $ = require("jquery")(window);
-});
+var myPromise=require("myPromise");
+var p=new myPromise((resolve,reject)=>{setTimeout(()=>{resolve({data:1}),2000);}).then(result=>{});
+//p.then(...).catch(err=>{}).then()....
 ```
