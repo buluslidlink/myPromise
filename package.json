@@ -1,0 +1,32 @@
+{
+  "dependencies": {},
+  "description": "JavaScript library for asynchronize operations",
+  "devDependencies": {
+  },
+  "directories": {},
+  "keywords": [
+    "browser",
+    "javascript",
+    "jquery",
+    "library"
+  ],
+  "license": "MIT",
+  "main": "src/myPromise.js",
+  "maintainers": [
+    {
+      "name": "bulusli",
+      "email": "weztt521@163.com"
+    }
+  ],
+  "name": "myPromise",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buluslidlink/myPromise.git"
+  },
+  "scripts": {
+    "test": "test/test.js"
+  },
+  "title": "myPromise",
+  "version": "1.0.0"
+}

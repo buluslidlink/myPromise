@@ -1,0 +1,14 @@
+{
+  "name": "myPromise",
+  "main": "src/myPromise.js",
+  "license": "MIT",
+  "ignore": [
+    "package.json"
+  ],
+  "keywords": [
+    "promise",
+    "javascript",
+    "browser",
+    "library"
+  ]
+}
