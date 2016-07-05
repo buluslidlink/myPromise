@@ -1,14 +1,20 @@
 {
-  "name": "myPromise",
-  "main": "src/myPromise.js",
-  "license": "MIT",
-  "ignore": [
-    "package.json"
-  ],
+  "name": "myPromise" ,
+  "main": "myPromise.js" ,
+  "version": "1.0.0" ,
+  "authors": [
+    "bulusli <weztt521@163.com>"
+  ] ,
+  "description": "JavaScript library for asynchronize operations" ,
   "keywords": [
-    "myPromise",
-    "javascript",
-    "browser",
-    "library"
+    "myPromise"
+  ] ,
+  "license": "MIT" ,
+  "ignore": [
+    "**/.*" ,
+    "node_modules" ,
+    "bower_components" ,
+    "test" ,
+    "tests"
   ]
 }
