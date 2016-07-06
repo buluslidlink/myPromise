@@ -201,7 +201,7 @@
                                 }
                             }
                             let index = obj["index"];
-                            MyPromise.callback(callbackValue, thenCallbackArr, currPromise, index);  //tail call optimized
+                            MyPromise.callback(callbackValue, thenCallbackArr, currPromise, index);  //tail recursive optimization if supported(ES6 support in definition,but current environments ran es6 code not support this optimize yet// )
                         }
                     } catch (e) {//调用错误捕获函数
                         let eResult = MyPromise.handleError(thenCallbackArr, 0, e, currPromise, fnIndexInCallbackArr);
