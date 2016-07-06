@@ -489,8 +489,12 @@
         throw new Error("MyPromise must be run in an ECMAScript6 envirement");
     }
 
-    if (Object.is(typeof module, "object") && Object.is(typeof module.exports, "object")) {
+    if (Object.is(typeof module, "object") && Object.is(typeof module.exports, "object")) {//Common JS
         module.exports = MyPromise;
+    } else if (Object.is(typeof define, "function") && define.amd) { //AMD JS
+        define(function () {
+            return MyPromise;
+        });
     } else {
         window.MyPromise = MyPromise;
     }
