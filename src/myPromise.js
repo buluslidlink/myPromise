@@ -45,7 +45,7 @@
                             obj["doReject"](eResult);
                         }
                     } catch (e) { //先在自身的回调中查找后续catch函数
-                        MyPromise.handleError(callbackArr, _index, e, currPromise, fnIndexInCallbackArr);  //tail call optimized
+                        return MyPromise.handleError(callbackArr, _index, e, currPromise, fnIndexInCallbackArr);  //tail call optimized
                     }
                 } else {
                     callbackArr.splice(0, callbackArr.length);//删除数组所有元素
@@ -59,7 +59,7 @@
                 let parent = currPromise ? currPromise.parent : undefined;//上一级MyPromise对象
                 let parentArr = parent ? parent.callbackArr : undefined; //上一级回调数组
                 if (parentArr && parentArr.length > 0) {//在上一级中查找error处理函数，从当前对象所在方法fnIndexInCallbackArr位置的后面开始
-                    MyPromise.handleError(parentArr, fnIndexInCallbackArr, error, parent, parent.index);
+                    return MyPromise.handleError(parentArr, fnIndexInCallbackArr, error, parent, parent.index);
                 } else {
                     throw new Error(error || "uncaught error");
                 }
@@ -108,7 +108,6 @@
 
                 return obj;
             }
-            return undefined;
         }
 
 
@@ -201,11 +200,11 @@
                                 }
                             }
                             let index = obj["index"];
-                            MyPromise.callback(callbackValue, thenCallbackArr, currPromise, index);  //tail call optimized
+                            return MyPromise.callback(callbackValue, thenCallbackArr, currPromise, index);  //tail call optimized
                         }
                     } catch (e) {//调用错误捕获函数
                         let eResult = MyPromise.handleError(thenCallbackArr, 0, e, currPromise, fnIndexInCallbackArr);
-                        MyPromise.callback(eResult, thenCallbackArr);
+                        return MyPromise.callback(eResult, thenCallbackArr);
                     }
                 }
             }
